@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>abado: say yes to every guest</title>
+<meta name="description" content="The free guest upsell app for hotels. Guests order late checkout, breakfast in bed and room service from a QR in the room. Your team confirms in Telegram.">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="icon" href="assets/icons/abado-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon-180.png">
+<meta name="theme-color" content="#0F0D22">
+<meta property="og:type" content="website">
+<meta property="og:title" content="abado: say yes to every guest">
+<meta property="og:description" content="The free guest app for hotels. Late checkout, breakfast in bed and room service from a QR code in the room.">
+<meta property="og:image" content="assets/og/og-en.jpg">
+<link rel="alternate" hreflang="ru" href="ru/">
+<link rel="alternate" hreflang="en" href="./">
+<style>
+:root{
+  --midnight:#0F0D22; --panel:#1A1638; --line:#2C2758; --rose:#FF4F8B; --ink:#D6246A; --blush:#FF8DB4; --moon:#F4F1FF; --core:#FFE3EE; --sub:#B8B3D6;
+}
+[data-theme="night"]{--bg:#0F0D22;--card:#1A1638;--text:#F4F1FF;--muted:#B8B3D6;--border:#2C2758;--accent:#FF4F8B;--accentText:#0F0D22;--link:#FF8DB4}
+[data-theme="day"]{--bg:#F4F1FF;--card:#FFFFFF;--text:#0F0D22;--muted:#4C4766;--border:#DCD6EE;--accent:#D6246A;--accentText:#FFFFFF;--link:#D6246A}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:17px;line-height:1.55;transition:background .5s,color .5s}
+a{color:var(--link)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--blush);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{letter-spacing:-.03em;line-height:1.05;margin:0}
+h2{font-size:clamp(32px,4.4vw,52px);font-weight:800}
+h3{font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+p{margin:0}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:16px;font-weight:700;font-size:17px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn-main{background:var(--accent);color:var(--accentText)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+section{padding:96px 0}
+.eyebrowless{max-width:640px;display:flex;flex-direction:column;gap:16px;margin-bottom:48px}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:background .5s}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px;font-weight:500}
+.nav ul a{color:var(--text);text-decoration:none}
+.nav ul a:hover{color:var(--link)}
+.tools{display:flex;gap:10px;align-items:center}
+.pill{min-height:40px;padding:0 14px;border-radius:12px;border:1.5px solid var(--border);background:transparent;color:var(--text);font:600 14px Inter,sans-serif;cursor:pointer}
+@media (max-width:900px){.nav ul{display:none}}
+@media (max-width:600px){.hero{padding-top:40px}section{padding:64px 0}}
+
+/* hero */
+.hero{padding:72px 0 88px;text-align:center}
+.sign{display:flex;align-items:center;justify-content:center}
+.sign svg{width:min(560px,80vw);height:auto;overflow:visible}
+.sign .tube{transition:fill .5s,opacity .5s}
+[data-theme="day"] .sign .glow{opacity:0}
+[data-theme="day"] .sign .core{fill:#D6246A}
+.hero h1{font-size:clamp(40px,6vw,76px);font-weight:800;margin-top:calc(min(560px,80vw)*.117)}
+.hero .second{font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-.01em;line-height:1.3;color:var(--link);margin-top:16px}
+.hero .lead{max-width:640px;margin:24px auto 0;color:var(--muted);font-size:18px}
+.hero .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.switch{margin-top:28px;display:inline-flex;gap:10px;align-items:center;font-size:14px;color:var(--muted)}
+.switch button{width:58px;height:32px;border-radius:16px;border:0;background:var(--card);position:relative;cursor:pointer;box-shadow:inset 0 0 0 1.5px var(--border)}
+.switch button span{position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:12px;background:var(--rose);box-shadow:0 0 12px var(--rose);transition:left .3s}
+[data-theme="day"] .switch button span{left:30px;background:#8E86A6;box-shadow:none}
+
+/* video */
+.video{border-radius:28px;overflow:hidden;border:1px solid var(--border);background:#000;aspect-ratio:16/9}
+.video video{width:100%;height:100%;display:block}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.step{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.step .n{width:40px;height:40px;border-radius:20px;border:2px solid var(--accent);color:var(--link);display:flex;align-items:center;justify-content:center;font-weight:800}
+@media (max-width:800px){.steps{grid-template-columns:1fr}}
+
+/* app gallery */
+.gallery{display:flex;gap:28px;overflow-x:auto;padding:8px 4px 24px;scroll-snap-type:x mandatory}
+.shot{flex:0 0 240px;scroll-snap-align:start;display:flex;flex-direction:column;gap:12px}
+.shot img{width:240px;height:auto;display:block;filter:drop-shadow(0 18px 30px rgba(0,0,0,.35))}
+.shot b{font-size:16px}
+.shot span{font-size:14px;color:var(--muted);line-height:1.45}
+
+/* features */
+.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.feat{border-top:1.5px solid var(--border);padding-top:20px;display:flex;flex-direction:column;gap:8px}
+.feat p{color:var(--muted);font-size:16px}
+@media (max-width:900px){.features{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.features{grid-template-columns:1fr}}
+
+/* happy band */
+.band{background:var(--card);border:1px solid var(--border);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.band ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:12px;color:var(--muted)}
+.band ul b{color:var(--text)}
+@media (max-width:900px){.band{grid-template-columns:1fr;padding:32px}}
+
+/* pricing */
+.price{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pcard{border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:14px}
+.pcard.main{background:var(--midnight);color:var(--moon);border:1px solid var(--line)}
+.pcard.alt{background:var(--card);border:1px solid var(--border)}
+.big{font-size:clamp(48px,6vw,72px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.pcard ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+@media (max-width:800px){.price{grid-template-columns:1fr}}
+
+/* faq */
+details{border-bottom:1.5px solid var(--border);padding:20px 0}
+summary{cursor:pointer;font-weight:600;font-size:19px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::after{content:"+";color:var(--link);font-size:24px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:12px;max-width:760px}
+
+/* contact */
+.contact{text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+#sign2{margin-bottom:calc(min(380px,70vw)*.117 - 20px)}
+.contact .ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.placeholder{font-size:14px;color:var(--muted)}
+footer{border-top:1px solid var(--border);padding:40px 0;font-size:14px;color:var(--muted)}
+footer .row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="#top" aria-label="abado home" class="navlogo" style="display:flex"></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#how" data-i="nav_how">How it works</a></li>
+        <li><a href="#app" data-i="nav_app">The app</a></li>
+        <li><a href="#hotels" data-i="nav_hotels">For hotels</a></li>
+        <li><a href="#pricing" data-i="nav_price">Pricing</a></li>
+        <li><a href="#faq" data-i="nav_faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="tools">
+      <button class="pill" id="lang" aria-label="Switch language">RU</button>
+      <a class="btn btn-main" href="#contact" style="min-height:44px;padding:0 18px;font-size:15px" data-i="nav_demo">Book a demo</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="sign" id="sign"></div>
+      <h1 data-i="h1">Say yes to every guest.</h1>
+      <p class="second" data-i="second">Happy guests spend more.</p>
+      <p class="lead" data-i="lead">abado gives your guests late checkout, breakfast in bed, food to the room and upgrades from a QR code in every room. They pay in one tap; your team confirms in Telegram. Free for hotels.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="#contact" data-i="cta_demo">Book a demo</a>
+        <a class="btn btn-ghost" href="#watch" data-i="cta_watch">Watch a guest's evening</a>
+      </div>
+      <div class="switch">
+        <span data-i="sw_label">Lights</span>
+        <button id="lights" type="button" aria-pressed="true" aria-label="Turn the lights on or off"><span></span></button>
+        <span id="swstate" data-i="sw_on">On: night mode</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="watch" style="padding-top:24px">
+    <div class="wrap">
+      <div class="eyebrowless">
+        <h2 data-i="w_h">One guest, one evening, two taps.</h2>
+        <p class="muted" data-i="w_p">Anna checks in, scans the card on the nightstand, and later, over dinner across town, books late checkout and breakfast in bed. 46 seconds.</p>
+      </div>
+      <div class="video"><video id="film" controls preload="metadata" poster="assets/video/poster_en.jpg" playsinline src="assets/video/abado_film_en.mp4"></video></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="eyebrowless">
+        <h2 data-i="how_h">How it works</h2>
+        <p class="muted" data-i="how_p">No app for guests, no new hardware for you, no integration needed to start.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3 data-i="s1_h">A QR in every room</h3><p class="muted" data-i="s1_p">On the nightstand card, the door hanger and the Wi-Fi login page. Guests can also get the link before arrival.</p></div>
+        <div class="step"><span class="n">2</span><h3 data-i="s2_h">Guests tap and pay</h3><p class="muted" data-i="s2_p">The page opens in the browser in your hotel's colours. Cards are held, not charged, until the service is delivered.</p></div>
+        <div class="step"><span class="n">3</span><h3 data-i="s3_h">Your team says yes</h3><p class="muted" data-i="s3_p">Every order lands in your Telegram group. One tap confirms it, and the guest sees "Yes!" on their phone.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="app">
+    <div class="wrap">
+      <div class="eyebrowless">
+        <h2 data-i="app_h">What your guests see</h2>
+        <p class="muted" data-i="app_p">Your hotel's name and services, the right offer at the right hour, and a quiet "Powered by abado" at the bottom.</p>
+      </div>
+      <div class="gallery" tabindex="0" aria-label="App screenshots">
+        <div class="shot"><img src="assets/shots/en/home-day.png" alt="Hotel welcome page in the afternoon"><b data-i="g1_h">Welcome</b><span data-i="g1_p">Opens the moment the QR is scanned.</span></div>
+        <div class="shot"><img src="assets/shots/en/home-night.png" alt="Evening page offering late checkout"><b data-i="g2_h">After 20:00</b><span data-i="g2_p">Night mode turns on and late checkout moves to the top.</span></div>
+        <div class="shot"><img src="assets/shots/en/late-checkout.png" alt="Payment sheet for late checkout"><b data-i="g3_h">Pay in one tap</b><span data-i="g3_p">The card is held and charged only when the service is given.</span></div>
+        <div class="shot"><img src="assets/shots/en/breakfast.png" alt="Breakfast in bed menu with time slots"><b data-i="g4_h">Breakfast in bed</b><span data-i="g4_p">Pick dishes and a time slot for tomorrow morning.</span></div>
+        <div class="shot"><img id="yesshot" src="assets/shots/en/yes.png" alt="Confirmation screen"><b data-i="g5_h">yes! / да!</b><span data-i="g5_p">The guest sees it the second your team confirms.</span></div>
+        <div class="shot"><img src="assets/shots/en/telegram.png" alt="Hotel Telegram group with confirmed orders"><b data-i="g6_h">Your team's side</b><span data-i="g6_p">Orders in Telegram, confirmed with one tap.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hotels">
+    <div class="wrap">
+      <div class="band">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <h2 data-i="band_h">Happy guests spend more.</h2>
+          <p class="muted" data-i="band_p">A guest who gets a late checkout without calling reception, or breakfast in bed without a form, says yes to the next thing too, and leaves a better review.</p>
+        </div>
+        <ul>
+          <li data-i="band_1"><b>Small yeses add up:</b> late checkout, early check-in, an extra night, dinner in the room.</li>
+          <li data-i="band_2"><b>The right moment:</b> breakfast before 09:30, dinner after 17:00, late checkout from 20:00 the night before.</li>
+          <li data-i="band_3"><b>Fewer calls to reception:</b> Wi-Fi, hours and requests are all on the page.</li>
+        </ul>
+      </div>
+
+      <div class="features" style="margin-top:64px">
+        <div class="feat"><h3 data-i="f1_h">No app to download</h3><p data-i="f1_p">A web page that opens from the camera. Works on any phone, in Russian and English.</p></div>
+        <div class="feat"><h3 data-i="f2_h">No integration to start</h3><p data-i="f2_p">Add your services and prices in the console and print the QR cards. Your PMS stays as it is.</p></div>
+        <div class="feat"><h3 data-i="f3_h">Telegram for your team</h3><p data-i="f3_p">Reception and kitchen get orders where they already chat, with email and SMS as backup.</p></div>
+        <div class="feat"><h3 data-i="f4_h">Payments held, not charged</h3><p data-i="f4_p">Cards are held when the guest orders and charged when the service is given. Receipts are issued automatically.</p></div>
+        <div class="feat"><h3 data-i="f5_h">Your brand first</h3><p data-i="f5_p">Guests see your hotel's name, colours and photos. abado stays in the footer.</p></div>
+        <div class="feat"><h3 data-i="f6_h">Numbers you can show the owner</h3><p data-i="f6_p">Revenue, orders and conversion per service, every day, in the abado console.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <div class="eyebrowless">
+        <h2 data-i="p_h">Free for hotels.</h2>
+        <p class="muted" data-i="p_p">We only earn when your guests pay for something they wanted.</p>
+      </div>
+      <div class="price">
+        <div class="pcard main">
+          <span class="big">0 ₽</span>
+          <b style="font-size:20px" data-i="p1_h">For the hotel</b>
+          <ul data-i="p1_l" class="list"><li>No setup fee, no monthly fee</li><li>QR cards and door hangers designed for you</li><li>Console, Telegram bots and stats included</li></ul>
+        </div>
+        <div class="pcard alt">
+          <span class="big" style="color:var(--link)">5%</span>
+          <b style="font-size:20px" data-i="p2_h">Of what guests pay through abado</b>
+          <ul data-i="p2_l" class="list muted"><li>Taken automatically from each payment</li><li>Nothing sold, nothing paid</li><li>Your services, your prices, your money</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap" style="max-width:900px">
+      <h2 data-i="faq_h" style="margin-bottom:24px">Questions hotels ask</h2>
+      <details><summary data-i="q1">Do guests need to install anything?</summary><p data-i="a1">No. They scan the QR with the phone camera and the hotel's page opens in the browser. No sign-up, no app store.</p></details>
+      <details><summary data-i="q2">Do we need to connect our PMS?</summary><p data-i="a2">Not to start. You set up services, prices and opening hours in the console. A PMS connection can come later.</p></details>
+      <details><summary data-i="q3">How do payments work?</summary><p data-i="a3">The guest's card is held when they order and charged when the service is given. If you can't say yes, the hold is released and the guest pays nothing.</p></details>
+      <details><summary data-i="q4">What does my team have to do?</summary><p data-i="a4">Confirm or decline each order in Telegram, then deliver it. That's it.</p></details>
+      <details><summary data-i="q5">How long does it take to start?</summary><p data-i="a5">Most of the work is listing your services and prices. Once that's done, print the cards and put them in the rooms.</p></details>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact">
+      <div class="sign" id="sign2"></div>
+      <h2 data-i="c_h">Let's light up your hotel.</h2>
+      <p class="muted" data-i="c_p" style="max-width:560px">Tell us about your hotel and we'll show you abado with your own rooms and services.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="https://t.me/TELEGRAM_USERNAME" data-i="c_tg">Message us on Telegram</a>
+        <a class="btn btn-ghost" href="mailto:EMAIL@YOUR-DOMAIN.ru" data-i="c_mail">Email us</a>
+      </div>
+      <p class="placeholder">[Telegram link and email address to be added]</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span class="footlogo" style="display:flex"></span>
+    <span data-i="foot">Say yes to every guest.</span>
+    <span>© 2026 abado</span>
+  </div>
+</footer>
+
+<script>
+const P="M396.0-136.2L396.0-136.2Q394.0-132.3 387.9-119.9Q381.8-107.4 372.3-91.3Q362.8-75.2 350.1-57.6Q337.4-40.0 321.8-25.4Q306.2-10.7 288.1-1.2Q270.0 8.3 250 8.3L250 8.3Q221.7 8.3 202.4-9.8Q183.1-27.8 174.3-55.2L174.3-55.2Q157.7-27.3 134.8-11.0Q111.8 5.4 88.9 5.4L88.9 5.4Q70.8 5.4 56.2-1.2Q41.5-7.8 31.3-19.8Q21.0-31.7 15.4-47.9Q9.8-64.0 9.8-83.0L9.8-83.0Q9.8-121.1 22.7-150.1Q35.6-179.2 55.7-198.7Q75.7-218.3 99.9-228.0Q124.0-237.8 146.5-237.8L146.5-237.8Q161.6-237.8 174.3-233.6Q187.0-229.5 196.0-224.6Q205.1-219.7 210.0-215.6Q214.8-211.4 215.3-210.9L215.3-210.9Q220.7-204.6 220.7-197.8L220.7-197.8Q220.7-190.4 215.3-184.8Q210.0-179.2 202.6-179.2L202.6-179.2Q194.8-179.2 189.5-184.6L189.5-184.6Q188.5-185.5 185.1-188.2Q181.6-190.9 175.8-193.8Q169.9-196.8 161.9-199.0Q153.8-201.2 143.6-201.2L143.6-201.2Q128.4-201.2 111.3-194.3Q94.2-187.5 80.1-173.1Q65.9-158.7 56.4-137.0Q46.9-115.2 46.9-85.4L46.9-85.4Q46.9-76.2 48.8-66.7Q50.8-57.1 55.7-49.3Q60.5-41.5 68.8-36.6Q77.1-31.7 89.4-31.7L89.4-31.7Q98.1-31.7 109.6-37.6Q121.1-43.5 131.6-55.7Q142.1-67.9 150.6-86.4Q159.2-105.0 162.6-130.4L162.6-130.4Q163.6-137.2 168.9-141.8Q174.3-146.5 181.6-146.5L181.6-146.5Q188.5-146.5 193.6-141.1Q198.7-135.7 199.2-128.9L199.2-128.9Q199.7-119.6 201.2-102.8Q202.6-85.9 207.8-69.3Q212.9-52.7 223.1-40.5Q233.4-28.3 251.5-28.3L251.5-28.3Q263.2-28.3 274.7-34.7Q286.1-41.0 297.1-51.5Q308.1-62.0 318.1-75.4Q328.1-88.9 336.4-102.5Q344.7-116.2 351.1-128.9Q357.4-141.6 361.8-150.9L361.8-150.9Q364.3-156.3 368.9-159.2Q373.5-162.1 378.9-162.1L378.9-162.1Q387.2-162.1 392.3-156.0Q397.5-149.9 397.5-143.1L397.5-143.1Q397.5-139.6 396.0-136.2ZM773.9-135.3L773.9-135.3Q772.5-132.3 767.6-123.3Q762.7-114.3 754.9-102.3Q747.1-90.3 736.3-76.9Q725.6-63.5 712.9-52.2Q700.2-41.0 685.5-33.7Q670.9-26.4 655.3-26.4L655.3-26.4Q629.9-26.4 612.3-35.4Q594.7-44.4 583.5-55.7L583.5-55.7Q575.7-38.6 564.5-24.4Q553.2-10.3 539.6 0.2Q525.9 10.7 510.5 16.6Q495.1 22.5 479.0 22.5L479.0 22.5Q449.2 22.5 428.2 4.9Q407.2-12.7 393.3-42.2Q379.4-71.8 371.6-110.8Q363.8-149.9 359.6-192.9Q355.5-235.8 354.5-279.8Q353.5-323.7 353.5-363.3L353.5-363.3Q353.5-439.0 357.9-494.4Q362.3-549.8 369.9-588.6Q377.4-627.4 387.5-651.6Q397.5-675.8 408.7-689.2Q419.9-702.6 431.6-707.5Q443.4-712.4 454.6-712.4L454.6-712.4Q472.7-712.4 486.6-701.7Q500.5-690.9 510.0-671.6Q519.5-652.3 524.4-625Q529.3-597.7 529.3-564.9L529.3-564.9Q529.3-512.7 518.1-457.0Q506.8-401.4 489.0-345.9Q471.2-290.5 449.2-237.1Q427.2-183.6 405.8-135.7L405.8-135.7Q408.7-111.8 414.6-90.1Q420.4-68.4 429.7-51.5Q439.0-34.7 451.7-24.7Q464.4-14.6 481.0-14.6L481.0-14.6Q497.6-14.6 512.2-24.2Q526.9-33.7 537.6-49.1Q548.3-64.5 554.4-84.0Q560.5-103.5 560.5-124.0L560.5-124.0Q560.5-137.7 557.9-151.6Q555.2-165.5 549.6-176.5Q543.9-187.5 535.6-194.3Q527.3-201.2 515.6-201.2L515.6-201.2Q506.8-201.2 502.0-197.5Q497.1-193.8 494.6-189.2Q492.2-184.6 491.7-180.2Q491.2-175.8 491.2-174.3L491.2-174.3Q491.2-167.5 494.1-160.6Q497.1-153.8 505.4-148.4L505.4-148.4Q513.7-142.6 513.7-132.3L513.7-132.3Q513.7-124.0 508.1-119.1Q502.4-114.3 495.6-114.3L495.6-114.3Q485.8-114.3 478.3-120.1Q470.7-126.0 465.3-135.0Q460.0-144.0 457.0-154.3Q454.1-164.6 454.1-173.3L454.1-173.3Q454.1-187.5 459.0-199.5Q463.9-211.4 472.4-220.0Q481.0-228.5 491.9-233.2Q502.9-237.8 515.1-237.8L515.1-237.8Q536.1-237.8 551.5-228.0Q566.9-218.3 577.1-202.1Q587.4-186.0 592.3-165.5Q597.2-145.0 597.2-124.0L597.2-124.0Q597.2-111.8 595.7-100.1L595.7-100.1Q597.7-96.2 602.1-89.8Q606.4-83.5 613.8-77.6Q621.1-71.8 631.3-67.4Q641.6-63.0 655.3-63.0L655.3-63.0Q667.0-63.0 679.4-72.0Q691.9-81.1 703.4-94.5Q714.8-107.9 724.6-123.3Q734.4-138.7 740.7-151.9L740.7-151.9Q743.2-156.7 747.6-159.4Q752.0-162.1 757.3-162.1L757.3-162.1Q765.6-162.1 770.8-156.3Q775.9-150.4 775.9-143.1L775.9-143.1Q775.9-140.1 773.9-135.3ZM396.5-198.2L396.5-198.2Q413.1-239.3 430.2-284.4Q447.3-329.6 460.9-376.5Q474.6-423.3 483.4-471.2Q492.2-519.0 492.2-565.4L492.2-565.4Q492.2-583.0 490.5-602.3Q488.8-621.6 484.4-637.7Q480.0-653.8 472.4-664.6Q464.8-675.3 453.1-675.3L453.1-675.3Q449.2-675.3 443.1-670.2Q437.0-665.0 430.2-652.1Q423.3-639.2 416.5-616.2Q409.7-593.3 404.1-557.9Q398.4-522.5 394.8-472.7Q391.1-422.9 391.1-355.5L391.1-355.5Q391.1-333.0 391.6-309.8Q392.1-286.6 392.8-265.6Q393.6-244.6 394.5-227.1Q395.5-209.5 396.5-198.2ZM1118.2-136.2L1118.2-136.2Q1116.2-132.3 1110.1-119.9Q1104.0-107.4 1094.5-91.3Q1085.0-75.2 1072.3-57.6Q1059.6-40.0 1043.9-25.4Q1028.3-10.7 1010.3-1.2Q992.2 8.3 972.2 8.3L972.2 8.3Q943.8 8.3 924.6-9.8Q905.3-27.8 896.5-55.2L896.5-55.2Q879.9-27.3 856.9-11.0Q834.0 5.4 811.0 5.4L811.0 5.4Q793.0 5.4 778.3-1.2Q763.7-7.8 753.4-19.8Q743.2-31.7 737.5-47.9Q731.9-64.0 731.9-83.0L731.9-83.0Q731.9-121.1 744.9-150.1Q757.8-179.2 777.8-198.7Q797.9-218.3 822.0-228.0Q846.2-237.8 868.7-237.8L868.7-237.8Q883.8-237.8 896.5-233.6Q909.2-229.5 918.2-224.6Q927.2-219.7 932.1-215.6Q937.0-211.4 937.5-210.9L937.5-210.9Q942.9-204.6 942.9-197.8L942.9-197.8Q942.9-190.4 937.5-184.8Q932.1-179.2 924.8-179.2L924.8-179.2Q917.0-179.2 911.6-184.6L911.6-184.6Q910.6-185.5 907.2-188.2Q903.8-190.9 897.9-193.8Q892.1-196.8 884.0-199.0Q876.0-201.2 865.7-201.2L865.7-201.2Q850.6-201.2 833.5-194.3Q816.4-187.5 802.2-173.1Q788.1-158.7 778.6-137.0Q769.0-115.2 769.0-85.4L769.0-85.4Q769.0-76.2 771.0-66.7Q772.9-57.1 777.8-49.3Q782.7-41.5 791.0-36.6Q799.3-31.7 811.5-31.7L811.5-31.7Q820.3-31.7 831.8-37.6Q843.3-43.5 853.8-55.7Q864.3-67.9 872.8-86.4Q881.3-105.0 884.8-130.4L884.8-130.4Q885.7-137.2 891.1-141.8Q896.5-146.5 903.8-146.5L903.8-146.5Q910.6-146.5 915.8-141.1Q920.9-135.7 921.4-128.9L921.4-128.9Q921.9-119.6 923.3-102.8Q924.8-85.9 929.9-69.3Q935.1-52.7 945.3-40.5Q955.6-28.3 973.6-28.3L973.6-28.3Q985.4-28.3 996.8-34.7Q1008.3-41.0 1019.3-51.5Q1030.3-62.0 1040.3-75.4Q1050.3-88.9 1058.6-102.5Q1066.9-116.2 1073.2-128.9Q1079.6-141.6 1084.0-150.9L1084.0-150.9Q1086.4-156.3 1091.1-159.2Q1095.7-162.1 1101.1-162.1L1101.1-162.1Q1109.4-162.1 1114.5-156.0Q1119.6-149.9 1119.6-143.1L1119.6-143.1Q1119.6-139.6 1118.2-136.2ZM1273.9-142.1L1273.9-142.1Q1297.9-29.3 1343.3-29.3L1343.3-29.3Q1360.8-29.3 1377.0-42.2Q1393.1-55.2 1407.0-74.0Q1420.9-92.8 1431.6-113.8Q1442.4-134.8 1449.2-150.4L1449.2-150.4Q1454.1-162.1 1466.3-162.1L1466.3-162.1Q1474.1-162.1 1479.5-156.3Q1484.9-150.4 1484.9-143.6L1484.9-143.6Q1484.9-139.6 1483.4-136.7L1483.4-136.7Q1480.0-128.4 1473.4-114.5Q1466.8-100.6 1457.3-84.7Q1447.8-68.8 1436.0-52.2Q1424.3-35.6 1410.2-22.5Q1396.0-9.3 1380.1-0.7Q1364.3 7.8 1346.7 7.8L1346.7 7.8Q1314.0 7.8 1290.5-14.9Q1267.1-37.6 1250-89.8L1250-89.8Q1226.6-40.0 1202.6-17.6Q1178.7 4.9 1150.9 4.9L1150.9 4.9Q1136.2 4.9 1122.6 0.2Q1108.9-4.4 1098.6-15.1Q1088.4-25.9 1082.0-42.7Q1075.7-59.6 1075.7-84.0L1075.7-84.0Q1075.7-117.7 1087.4-146.0Q1099.1-174.3 1117.7-194.6Q1136.2-214.8 1158.9-226.1Q1181.6-237.3 1204.1-237.3L1204.1-237.3Q1211.4-237.3 1216.8-232.2Q1222.2-227.1 1222.2-219.2L1222.2-219.2Q1222.2-212.4 1217.8-207.0Q1213.4-201.7 1206.1-200.7L1206.1-200.7Q1191.4-198.7 1174.8-191.4Q1158.2-184.1 1144.3-170.2Q1130.4-156.3 1121.3-134.8Q1112.3-113.3 1112.3-83.5L1112.3-83.5Q1112.3-59.1 1122.3-45.4Q1132.3-31.7 1151.4-31.7L1151.4-31.7Q1159.2-31.7 1168.0-35.9Q1176.8-40.0 1186.8-52.2Q1196.8-64.5 1208.7-86.9Q1220.7-109.4 1235.4-146.0L1235.4-146.0Q1227.1-189.0 1220.2-245.1Q1213.4-301.3 1213.4-370.6L1213.4-370.6Q1213.4-400.9 1215.3-433.8Q1217.3-466.8 1221.7-498.3Q1226.1-529.8 1233.4-558.1Q1240.7-586.4 1251.2-607.9Q1261.7-629.4 1275.9-641.8Q1290.0-654.3 1308.1-654.3L1308.1-654.3Q1324.2-654.3 1335.4-645.5Q1346.7-636.7 1353.8-621.1Q1360.8-605.5 1364.3-583.5Q1367.7-561.5 1367.7-535.2L1367.7-535.2Q1367.7-478.5 1357.9-421.9Q1348.1-365.2 1333.7-313.5Q1319.3-261.7 1303.2-217.8Q1287.1-173.8 1273.9-142.1ZM1331.1-535.6L1331.1-535.6Q1331.1-547.9 1330.3-562.0Q1329.6-576.2 1326.9-588.6Q1324.2-601.1 1319.8-609.4Q1315.4-617.7 1308.1-617.7L1308.1-617.7Q1295.9-617.7 1285.4-596.2Q1274.9-574.7 1267.1-539.8Q1259.3-504.9 1254.6-460.7Q1250-416.5 1250-371.6L1250-371.6Q1250-328.6 1253.4-285.6Q1256.8-242.7 1261.2-209.0L1261.2-209.0Q1275.4-246.6 1288.1-286.4Q1300.8-326.2 1310.3-367.7Q1319.8-409.2 1325.4-451.4Q1331.1-493.7 1331.1-535.6ZM1674.8-53.7L1674.8-53.7Q1662.6-53.7 1653.3-55.7L1653.3-55.7Q1646.0-41.0 1635.7-28.6Q1625.5-16.1 1612.1-6.8Q1598.6 2.4 1582.0 7.8Q1565.4 13.2 1545.9 13.2L1545.9 13.2Q1522.9 13.2 1503.9 5.1Q1484.9-2.9 1470.7-17.3Q1456.5-31.7 1448.7-52.0Q1440.9-72.3 1440.9-96.7L1440.9-96.7Q1440.9-127.9 1452.1-151.1Q1463.4-174.3 1478.0-189.7Q1492.7-205.1 1507.3-212.6Q1522.0-220.2 1529.3-220.2L1529.3-220.2Q1537.6-220.2 1541.7-215.8Q1545.9-211.4 1545.9-204.1L1545.9-204.1Q1545.9-195.8 1540.8-191.7Q1535.6-187.5 1527.8-183.6L1527.8-183.6Q1520.0-179.7 1511.2-172.6Q1502.4-165.5 1494.9-154.8Q1487.3-144.0 1482.4-129.4Q1477.5-114.7 1477.5-96.7L1477.5-96.7Q1477.5-80.6 1482.4-66.7Q1487.3-52.7 1496.6-42.7Q1505.9-32.7 1518.6-27.1Q1531.3-21.5 1546.9-21.5L1546.9-21.5Q1574.7-21.5 1593.0-34.4Q1611.3-47.4 1621.1-67.4L1621.1-67.4Q1592.3-82.5 1573.7-110.4Q1555.2-138.2 1555.2-172.9L1555.2-172.9Q1555.2-200.7 1568.6-218.3Q1582.0-235.8 1604.0-235.8L1604.0-235.8Q1617.2-235.8 1628.9-229.5Q1640.6-223.1 1649.7-209.5Q1658.7-195.8 1664.1-174.3Q1669.4-152.8 1669.4-123.0L1669.4-123.0Q1669.4-107.4 1665.5-90.3L1665.5-90.3Q1668.5-89.8 1671.4-89.8Q1674.3-89.8 1677.7-89.8L1677.7-89.8Q1694.3-89.8 1707.5-93.8Q1720.7-97.7 1731.4-105.5Q1742.2-113.3 1750.7-125.5Q1759.3-137.7 1767.1-153.8L1767.1-153.8Q1768.6-156.7 1773.4-159.4Q1778.3-162.1 1783.2-162.1L1783.2-162.1Q1789.6-162.1 1795.2-157.0Q1800.8-151.9 1800.8-143.6L1800.8-143.6Q1800.8-139.6 1798.8-135.0Q1796.9-130.4 1794.9-126.5L1794.9-126.5Q1786.6-111.8 1775.6-98.4Q1764.6-85.0 1749.8-75.0Q1734.9-64.9 1716.3-59.1Q1697.8-53.2 1674.8-53.7ZM1591.3-176.8L1591.3-176.8Q1591.3-167.5 1593.8-157.2Q1596.2-147.0 1601.3-137.0Q1606.4-127.0 1614.0-117.9Q1621.6-108.9 1631.8-102.5L1631.8-102.5Q1633.3-112.8 1633.3-122.6L1633.3-122.6Q1633.3-135.7 1631.3-149.4Q1629.4-163.1 1625.7-174.6Q1622.1-186.0 1616.7-193.1Q1611.3-200.2 1604.0-200.2L1604.0-200.2Q1601.1-200.2 1596.2-195.8Q1591.3-191.4 1591.3-176.8Z";
+function sign(id,uid){return `<svg role="img" aria-label="abado" viewBox="-20 -742 1841 795"><defs><filter id="${uid}" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="40" result="a"/><feGaussianBlur in="SourceGraphic" stdDeviation="14" result="b"/><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="c"/><feMerge><feMergeNode in="a"/><feMergeNode in="a"/><feMergeNode in="b"/><feMergeNode in="c"/></feMerge></filter></defs><path class="tube glow" d="${P}" fill="#FF4F8B" filter="url(#${uid})"/><path class="tube core" d="${P}" fill="#FFE3EE"/></svg>`}
+function small(w){const night=document.documentElement.dataset.theme==='night';return `<svg width="${w}" height="${Math.round(w*795/1841)}" viewBox="-20 -742 1841 795" aria-hidden="true"><path d="${P}" fill="${night?'#FF8DB4':'#D6246A'}"/></svg>`}
+document.getElementById('sign').innerHTML=sign('sign','g1');
+document.getElementById('sign2').innerHTML=sign('sign2','g2');
+document.querySelector('#sign2 svg').style.width='min(380px,70vw)';
+function smalls(){document.querySelector('.navlogo').innerHTML=small(96);document.querySelector('.footlogo').innerHTML=small(84);}
+smalls();
+
+const RU={nav_how:"Как это работает",nav_app:"Приложение",nav_hotels:"Отелям",nav_price:"Цена",nav_faq:"Вопросы",nav_demo:"Демо",
+h1:"Скажите «да» каждому гостю.",second:"Довольные гости тратят больше.",lead:"abado даёт гостям поздний выезд, завтрак в номер, еду в номер и апгрейды по QR-коду в каждом номере. Гость платит в одно касание, ваша команда подтверждает в Telegram. Для отелей бесплатно.",
+cta_demo:"Записаться на демо",cta_watch:"Смотреть вечер гостя",sw_label:"Свет",sw_on:"Вкл: ночной режим",sw_off:"Выкл: дневной режим",
+w_h:"Один гость, один вечер, два касания.",w_p:"Анна заселяется, сканирует карточку на тумбочке, а вечером, за ужином в ресторане, бронирует поздний выезд и завтрак в номер. 46 секунд.",
+how_h:"Как это работает",how_p:"Гостям не нужно приложение, вам не нужно новое оборудование и интеграции для старта.",
+s1_h:"QR-код в каждом номере",s1_p:"На карточке у кровати, на дверной табличке и на странице входа в Wi-Fi. Ссылку можно отправить и до заезда.",
+s2_h:"Гость выбирает и платит",s2_p:"Страница открывается в браузере, в цветах вашего отеля. Деньги на карте блокируются и списываются только после оказания услуги.",
+s3_h:"Команда говорит «да»",s3_p:"Каждый заказ приходит в ваш Telegram-чат. Одно касание подтверждает его, и гость видит «Да!» на экране.",
+app_h:"Что видят гости",app_p:"Название и услуги вашего отеля, нужное предложение в нужный час и скромное «Powered by abado» внизу.",
+g1_h:"Добро пожаловать",g1_p:"Открывается сразу после сканирования QR.",g2_h:"После 20:00",g2_p:"Включается ночной режим, а поздний выезд выходит на первый план.",g3_h:"Оплата в одно касание",g3_p:"Сумма блокируется и списывается только после услуги.",g4_h:"Завтрак в постель",g4_p:"Блюда и время подачи на завтра.",g5_h:"Да!",g5_p:"Гость видит это, как только команда подтвердит.",g6_h:"Сторона отеля",g6_p:"Заказы в Telegram, подтверждение одним касанием.",
+band_h:"Довольные гости тратят больше.",band_p:"Гость, который получил поздний выезд без звонка на ресепшен или завтрак в номер без бланка, охотнее скажет «да» следующему предложению и оставит лучший отзыв.",
+band_1:"<b>Маленькие «да» складываются:</b> поздний выезд, ранний заезд, лишняя ночь, ужин в номере.",band_2:"<b>В нужный момент:</b> завтрак до 09:30, ужин после 17:00, поздний выезд с 20:00 накануне.",band_3:"<b>Меньше звонков на ресепшен:</b> Wi-Fi, часы работы и запросы — на одной странице.",
+f1_h:"Без приложения",f1_p:"Веб-страница открывается с камеры. Работает на любом телефоне, на русском и английском.",f2_h:"Без интеграций для старта",f2_p:"Добавьте услуги и цены в консоли и распечатайте QR-карточки. Ваша PMS остаётся как есть.",f3_h:"Telegram для команды",f3_p:"Ресепшен и кухня получают заказы там, где уже общаются. Почта и SMS — как резерв.",f4_h:"Блокировка, а не списание",f4_p:"Сумма блокируется при заказе и списывается после услуги. Чеки формируются автоматически.",f5_h:"Сначала ваш бренд",f5_p:"Гости видят название, цвета и фото вашего отеля. abado — только в подвале.",f6_h:"Цифры для собственника",f6_p:"Выручка, заказы и конверсия по каждой услуге — каждый день в консоли abado.",
+p_h:"Для отелей бесплатно.",p_p:"Мы зарабатываем, только когда гость платит за то, что хотел.",p1_h:"Для отеля",p1_l:"<li>Без платы за подключение и абонентской платы</li><li>QR-карточки и таблички для вас</li><li>Консоль, Telegram-боты и статистика включены</li>",p2_h:"От оплат гостей через abado",p2_l:"<li>Удерживается автоматически с каждой оплаты</li><li>Нет продаж — нет платы</li><li>Ваши услуги, ваши цены, ваши деньги</li>",
+faq_h:"Что спрашивают отели",q1:"Гостям нужно что-то устанавливать?",a1:"Нет. Они сканируют QR камерой телефона, и страница отеля открывается в браузере. Без регистрации и магазина приложений.",q2:"Нужно ли подключать PMS?",a2:"Для старта — нет. Услуги, цены и часы работы вы задаёте в консоли. Подключение к PMS можно сделать позже.",q3:"Как работают платежи?",a3:"Сумма блокируется на карте при заказе и списывается после оказания услуги. Если вы не можете сказать «да», блокировка снимается и гость ничего не платит.",q4:"Что нужно делать команде?",a4:"Подтвердить или отклонить заказ в Telegram и выполнить его. Всё.",q5:"Сколько времени занимает запуск?",a5:"Основная работа — перечислить услуги и цены. Затем распечатайте карточки и разложите их по номерам.",
+c_h:"Давайте зажжём свет в вашем отеле.",c_p:"Расскажите о вашем отеле, и мы покажем abado с вашими номерами и услугами.",c_tg:"Написать в Telegram",c_mail:"Написать на почту",foot:"Скажите «да» каждому гостю."};
+const EN={};document.querySelectorAll('[data-i]').forEach(el=>EN[el.dataset.i]=el.innerHTML);EN.sw_off="Off: day mode";
+let lang='en';
+function applyLang(){const D=lang==='ru'?RU:EN;document.documentElement.lang=lang;document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i;if(D[k]!==undefined)el.innerHTML=D[k]});document.getElementById('lang').textContent=lang==='ru'?'EN':'RU';document.querySelectorAll('.shot img').forEach(im=>{im.src=im.getAttribute('src').replace(/shots\/(en|ru)\//,'shots/'+lang+'/')});{const v=document.getElementById('film');const src='assets/video/abado_film_'+lang+'.mp4';if(!v.getAttribute('src').endsWith(src)){v.poster='assets/video/poster_'+lang+'.jpg';v.setAttribute('src',src);}}setSwitch();}
+document.getElementById('lang').addEventListener('click',()=>{lang=lang==='en'?'ru':'en';applyLang()});
+function setSwitch(){const night=document.documentElement.dataset.theme==='night';const D=lang==='ru'?RU:EN;const s=document.getElementById('swstate');s.innerHTML=night?D.sw_on:D.sw_off;document.getElementById('lights').setAttribute('aria-pressed',night)}
+document.getElementById('lights').addEventListener('click',()=>{const r=document.documentElement;r.dataset.theme=r.dataset.theme==='night'?'day':'night';setSwitch();smalls();});
+</script>
+</body>
+</html>
